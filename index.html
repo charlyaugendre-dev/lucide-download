@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Télécharger Lucide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f14;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Les instructions sont masquées par défaut.
+       Elles ne s'affichent QUE si la page est ouverte depuis TikTok.
+       Dans un vrai navigateur (Safari), le script redirige avant tout affichage,
+       donc rien ne "flashe" à l'écran. */
+    #instructions { display: none; max-width: 420px; width: 100%; text-align: center; }
+
+    .logo {
+      width: 76px; height: 76px; border-radius: 18px;
+      margin: 0 auto 24px; display: block;
+      background: radial-gradient(circle at center, #a855f7 0%, #6d28d9 55%, #2e1065 100%);
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    p.sub { font-size: 15px; color: #a1a1aa; margin-bottom: 28px; line-height: 1.5; }
+
+    .steps { text-align: left; background: #1a1a22; border-radius: 16px; padding: 12px 20px; }
+    .step { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; }
+    .num {
+      flex: none; width: 28px; height: 28px; border-radius: 50%;
+      background: #6d28d9; color: #fff; font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-text { font-size: 15px; line-height: 1.45; padding-top: 3px; }
+    .dots { font-weight: 700; letter-spacing: 2px; }
+  </style>
+</head>
+<body>
+  <div id="instructions">
+    <div class="logo"></div>
+    <h1>Plus qu'une étape</h1>
+    <p class="sub">TikTok ne permet pas d'ouvrir l'App Store directement. Pour télécharger Lucide :</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div class="step-text">Appuie sur les trois points <span class="dots">•••</span> en haut à droite de l'écran.</div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="step-text">Choisis « Ouvrir dans le navigateur ».</div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="step-text">L'App Store s'ouvrira automatiquement.</div>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <!-- Secours si JavaScript est désactivé (très rare sur mobile) -->
+    <a href="https://apps.apple.com/app/id6773450265" style="color:#fff">Télécharger Lucide sur l'App Store</a>
+  </noscript>
+
+  <script>
+    // ============ CONFIG ============
+    // L'URL de ta fiche App Store. C'est le seul champ à modifier si besoin.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6773450265";
+
+    // ============ DÉTECTION DU NAVIGATEUR TIKTOK ============
+    // TikTok ouvre les liens dans son navigateur interne, qui s'identifie
+    // via ces marqueurs dans le "user agent". Si un jour TikTok change sa
+    // signature et que la détection ne marche plus, c'est CETTE ligne qu'il
+    // faut ajuster (ajouter le nouveau marqueur dans la liste ci-dessous).
+    var ua = navigator.userAgent || "";
+    var isTikTok = /musical_ly|bytedance|tiktok|aweme|trill/i.test(ua);
+
+    if (isTikTok) {
+      // Ouvert DEPUIS TikTok : on n'essaie PAS d'ouvrir l'App Store
+      // (ce serait la page blanche). On affiche seulement les instructions.
+      document.getElementById("instructions").style.display = "block";
+    } else {
+      // Ouvert AILLEURS (Safari, après "Ouvrir dans le navigateur") :
+      // redirection automatique vers l'App Store.
+      window.location.replace(APP_STORE_URL);
+    }
+  </script>
+</body>
+</html>
