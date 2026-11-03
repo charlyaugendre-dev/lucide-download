@@ -46,7 +46,7 @@
 
     /* Masqué par défaut : hors TikTok le script redirige avant
        tout affichage, donc rien ne flashe à l'écran. */
-    #instructions, #fallback {
+    #instructions {
       display: none;
       width: 100%;
       max-width: 420px;
@@ -193,22 +193,6 @@
     }
     @keyframes fadeIn { to { opacity: 1; } }
 
-    /* ---------- Bouton principal (primaryBtn) ---------- */
-    .btn {
-      display: block;
-      margin-top: 24px;
-      padding: 17px 24px;
-      border-radius: 18px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -.2px;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(139, 0, 255, .3);
-    }
-    .btn:active { opacity: .8; }
 
     /* ---------- Écrans courts ---------- */
     @media (max-height: 680px) {
@@ -258,19 +242,6 @@
     <p class="foot">Une seule fois</p>
   </div>
 
-  <!-- Secours : uniquement si la redirection automatique n'aboutit pas -->
-  <div id="fallback">
-    <div class="brand">
-      <img class="mark" src="icone_lucide_transparent.png" alt="Lucide" />
-      <div class="wordmark">LUCIDE</div>
-      <div class="tagline">Mange avec clarté.</div>
-    </div>
-
-    <div class="eyebrow">Téléchargement</div>
-    <h1>Prêt à installer</h1>
-    <p class="sub">La redirection n'a pas démarré. Appuie sur le bouton.</p>
-    <a class="btn" href="https://apps.apple.com/app/id6773450265">Ouvrir l'App Store</a>
-  </div>
 
   <noscript>
     <a href="https://apps.apple.com/app/id6773450265" style="color:#9B30FF;font-size:16px">
@@ -300,13 +271,6 @@
     } else {
       // Ouvert AILLEURS (Safari, Instagram, Chrome...) : redirection directe.
       window.location.replace(APP_STORE_URL);
-
-      // Filet de sécurité : si on est toujours là après 2 secondes,
-      // c'est que la redirection a été bloquée. On propose un bouton
-      // plutôt que de laisser une page noire vide.
-      setTimeout(function () {
-        document.getElementById("fallback").style.display = "block";
-      }, 2000);
     }
   </script>
 </body>
