@@ -54,11 +54,11 @@
     }
 
     /* ---------- En-tête de marque (repris de AuthScreen) ---------- */
-    .brand { margin-bottom: 32px; }
+    .brand { margin-bottom: 36px; }
 
     .mark {
-      width: 112px; height: 112px;
-      margin: 0 auto 20px;
+      width: 88px; height: 88px;
+      margin: 0 auto;
       display: block;
       opacity: 0;
       transform: scale(.85);
@@ -68,23 +68,7 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* splashTitle : 32 / 800 / letterSpacing 8 / paddingLeft 8 */
-    .wordmark {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 6px;
-      padding-left: 6px;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
 
-    /* setupSubtitle en ACCENT_LIGHT, comme le slogan de l'écran de connexion */
-    .tagline {
-      font-size: 14px;
-      line-height: 22px;
-      letter-spacing: .1px;
-      color: var(--accent-light);
-    }
 
     /* ---------- Titres (setupEyebrow / setupTitle / setupSubtitle) ---------- */
     .eyebrow {
@@ -193,7 +177,7 @@
     /* ---------- Écrans courts ---------- */
     @media (max-height: 680px) {
       body { padding-top: calc(env(safe-area-inset-top) + 24px); }
-      .mark { width: 96px; height: 96px; margin-bottom: 16px; }
+      .mark { width: 72px; height: 72px; }
       .brand { margin-bottom: 28px; }
       h1 { font-size: 28px; line-height: 34px; }
       .step { padding: 14px 0; }
@@ -212,8 +196,6 @@
 
     <div class="brand">
       <img class="mark" src="icone_lucide_transparent.png" alt="Lucide" />
-      <div class="wordmark">LUCIDE</div>
-      <div class="tagline">Mange avec clarté.</div>
     </div>
 
     <div class="eyebrow">Dernière étape</div>
