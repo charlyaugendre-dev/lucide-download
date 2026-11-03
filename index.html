@@ -132,7 +132,20 @@
       padding-top: 1px;
     }
     .step-text strong { color: var(--text); font-weight: 700; letter-spacing: -.2px; }
-    .dots { color: var(--accent-light); font-weight: 700; letter-spacing: 2px; }
+    /* Reproduction des trois points de TikTok : ronds pleins blancs */
+    .dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      vertical-align: middle;
+      margin: 0 3px;
+      transform: translateY(-1px);
+    }
+    .dots i {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #fff;
+    }
 
 
     /* ---------- Repère vers les trois points de TikTok ---------- */
@@ -199,7 +212,7 @@
     <div class="steps">
       <div class="step">
         <div class="num">1</div>
-        <div class="step-text">Appuie sur les trois points <span class="dots">•••</span> en haut à droite.</div>
+        <div class="step-text">Appuie sur les trois points <span class="dots"><i></i><i></i><i></i></span> en haut à droite.</div>
       </div>
       <div class="step">
         <div class="num">2</div>
